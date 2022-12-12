@@ -1,6 +1,6 @@
 package pages;
 
-import elements.*;
+import elements.Link;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +15,7 @@ public class StoveAndOvenPage extends BasePage {
 
     // ***** Веб элементы *****
     // Ссылка на "Электрические плиты"
-    @FindBy(xpath = "(//a[contains(@class, \"catalog-product__name\")])[1]")
+    @FindBy(xpath = "//span[text()='Плиты электрические']")
     public WebElement linkElectricStove;
 
     // Конструктор класса
@@ -27,6 +27,6 @@ public class StoveAndOvenPage extends BasePage {
     }
 
     // ***** Получение обернутых веб элементов *****
-    // Ссылка на первый продукт в списке
+    // Ссылка на "Электрические плиты"
     public Link linkElectricStove() {return new Link(linkElectricStove);}
 }

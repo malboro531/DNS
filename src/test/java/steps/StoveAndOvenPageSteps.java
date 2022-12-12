@@ -1,6 +1,5 @@
 package steps;
 
-import helpers.JavaScriptHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +16,6 @@ public class StoveAndOvenPageSteps {
     public StoveAndOvenPageSteps(WebDriver driver) {
         // ***** Страница "Плиты и печи" *****
         stovesAndOvensPage = new StoveAndOvenPage(driver);
-        logger.info("Открыта страница [Плиты и печи]");
     }
 
     // Получение заголовка текущей страницы
@@ -28,8 +26,6 @@ public class StoveAndOvenPageSteps {
 
     //Перейти по ссылке Плиты электрические
     public void goToElectricStovePage() {
-        // Фокус на элементе
-        stovesAndOvensPage.linkElectricStove().focusOnLink();
         // Клик по элементу
         stovesAndOvensPage.linkElectricStove().click();
         logger.info("Открыта страница [Плиты электрические]");

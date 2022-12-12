@@ -39,6 +39,18 @@ public class JavaScriptHelper {
         }
     }
 
+    // Скролл страницы на элемент
+    public static void scrollToElement(WebElement element){
+        String script = "arguments[0].scrollIntoView(false);";
+        javascriptExecutor.executeScript(script, element);
+        // Добавление задержки
+        try {
+            Sleeper.SYSTEM_SLEEPER.sleep(Duration.ofSeconds(2));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     // Установка невидимости веб элемента
     public static void displayNone(WebElement element) {
         String script = "arguments[0].style.display='none';";
@@ -49,6 +61,13 @@ public class JavaScriptHelper {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    // Плавный скролл страницы для качественных скриншотов
+    public static void slowScroll() {
+        for (int i = 0; i < 1000; i++) {
+                javascriptExecutor.executeScript("window.scrollBy(0,5)", "");
+            }
     }
 
 }

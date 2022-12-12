@@ -3,23 +3,23 @@ package tests.matchers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
-import pages.ElectricStovePage;
+import steps.ElectricStovePageSteps;
 
 public class ElectricStovePageMatcher {
     // Логгер
     private static Logger logger = LogManager.getLogger(ElectricStovePageMatcher.class);
     // Страница "Плиты электрические"
-    ElectricStovePage electricStovePage;
+    ElectricStovePageSteps electricStovePageSteps;
 
     // Конструктор
-    public ElectricStovePageMatcher(ElectricStovePage electricStovePage) {
-        this.electricStovePage = electricStovePage;
+    public ElectricStovePageMatcher(ElectricStovePageSteps electricStovePageSteps) {
+        this.electricStovePageSteps = electricStovePageSteps;
     }
 
     // Проверка / Утверждение (Матчер)
     //Проверить, что в тексте Плиты электрические [количество] товаров количество товаров больше 100
     public void isCountElectricStoveOverOneHundred() {
-        Assertions.assertTrue(electricStovePage.intCountElectricStove() > 100,
+        Assertions.assertTrue(electricStovePageSteps.intCountElectricStove() > 100,
                 "ERROR! Количество электрических плит меньше 100");
         logger.info("Все ОК! Количество электрических плит больше 100");
     }

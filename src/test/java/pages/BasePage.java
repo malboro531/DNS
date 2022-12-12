@@ -1,6 +1,5 @@
 package pages;
 
-import elements.Link;
 import helpers.*;
 import org.openqa.selenium.WebDriver;
 

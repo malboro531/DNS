@@ -18,6 +18,7 @@ public class Link extends BaseElement{
 
     // Наведение курсора мыши на ссылку
     public void focusOnLink() {
+        WaitHelper.clickabilityOfElement(webElement);
         ActionHelper.moveToElement(webElement);
     }
 

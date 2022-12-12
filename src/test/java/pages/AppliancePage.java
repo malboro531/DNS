@@ -1,6 +1,6 @@
 package pages;
 
-import elements.*;
+import elements.Link;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class AppliancePage extends BasePage {
     // Заголовок страницы
     @FindBy(xpath = "//h1[@class='subcategory__page-title']")
     private WebElement baseElementAppliance;
-    // Ссылка техника для кухни
+    // Ссылка на "Техника для кухни"
     @FindBy(xpath = "//span[text()='Техника для кухни']")
     private WebElement linkKitchenAppliance;
 
@@ -35,6 +35,6 @@ public class AppliancePage extends BasePage {
     // Заголовок страницы
     public Link linkAppliance() { return new Link(baseElementAppliance); }
 
-    // Ссылка техника для кухни
+    // Ссылка на "Техника для кухни"
     public Link linkKitchenAppliance() { return new Link(linkKitchenAppliance); }
 }

@@ -10,12 +10,12 @@ public class LaptopBL implements Serializable {
     // Оперативная память
     private Ram ram;
     // Производитель
-    private Company сompany;
+    private Company company;
 
     // Конструктор
-    public LaptopBL(Ram ram, Company сompany) {
+    public LaptopBL() {
         this.ram = ram;
-        this.сompany = сompany;
+        this.company = company;
     }
 
     // Сеттеры и геттеры
@@ -29,10 +29,10 @@ public class LaptopBL implements Serializable {
 
     // Производитель
     public void setCompany(Company сompany) {
-        this.сompany = сompany;
+        this.company = сompany;
     }
     public Company getCompany() {
-        return this.сompany;
+        return this.company;
     }
 
 }
