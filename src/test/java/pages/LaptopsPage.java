@@ -41,12 +41,6 @@ public class LaptopsPage extends BasePage {
     // Ссылка на первый продукт в списке
     @FindBy(xpath = "(//a[contains(@class, \"catalog-product__name\")])[1]")
     private WebElement linkFirstProduct;
-    // Наименование продукта в продукте
-    @FindBy(xpath = "//h1[@class='product-card-top__title']")
-    private WebElement baseElementNameOfProduct;
-    // Наименование первого продукта в общем списке продуктов
-    @FindBy(xpath = "//div[@class='catalog-products view-simple']/div[1]/a/span")
-    private WebElement baseElementNameOfFirstProduct;
 
     // Конструктор класса
     public LaptopsPage(WebDriver driver) {
@@ -102,6 +96,4 @@ public class LaptopsPage extends BasePage {
     // Ссылка на первый продукт в списке
     public Link linkFirstProduct() {return new Link(linkFirstProduct);}
 
-    // Наименование первого продукта в общем списке продуктов
-    public BaseElement baseElementNameOfFirstProduct() {return new BaseElement(baseElementNameOfFirstProduct);}
 }

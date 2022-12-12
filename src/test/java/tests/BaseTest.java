@@ -3,11 +3,13 @@ package tests;
 import drivers.BrowserName;
 import drivers.WebDriverFactory;
 import helpers.JavaScriptHelper;
+import listeners.Selenium4Listener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringDecorator;
 
 public class BaseTest {
     // Драйвер браузера

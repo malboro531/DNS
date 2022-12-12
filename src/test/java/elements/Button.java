@@ -1,5 +1,6 @@
 package elements;
 
+import helpers.JavaScriptHelper;
 import helpers.WaitHelper;
 import org.openqa.selenium.WebElement;
 
@@ -16,6 +17,4 @@ public class Button extends  BaseElement{
         webElement.click();
     }
 
-//    // Фокус на элементе
-//    public  void focusOnElement() { JavaScriptHelper.focusOnElement(webElement);}
 }

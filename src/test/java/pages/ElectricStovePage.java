@@ -13,7 +13,7 @@ public class ElectricStovePage extends BasePage {
     private Logger logger = LogManager.getLogger(ElectricStovePage.class);
 
     // ***** Веб элементы *****
-    // Количество товаров
+    // Количество товаров в тексте Плиты электрические [количество]
     @FindBy(xpath = "//span[@class='products-count']")
     public WebElement baseElementCountElectricStove;
 
@@ -26,11 +26,10 @@ public class ElectricStovePage extends BasePage {
     }
 
     // ***** Получение обернутых веб элементов *****
-    // Количество товаров
-    public int intCountElectricStove() {
+    // Количество товаров в тексте Плиты электрические [количество]
+    public String intCountElectricStove() {
         String textElectricStove = baseElementCountElectricStove.getText().replaceAll("[^0-9]+", "");
-        int countElectricStove = Integer.parseInt(textElectricStove);
-        return countElectricStove;
+        return textElectricStove;
     }
 
 }

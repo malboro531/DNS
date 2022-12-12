@@ -34,7 +34,9 @@ public class KitchenAppliancePageSteps {
     }
 
     //Проверить, что отображается текст Техника для кухни
-    public String getKitchenApplianceTitle(){return kitchenAppliancePage.linkKitchenAppliance().getText();}
+    public String getKitchenApplianceTitle() {
+        return kitchenAppliancePage.linkKitchenAppliance().getText();
+    }
 
     //Проверить, что отображается ссылка Собрать свою кухню
     public boolean getLinkAssembleKitchen() {

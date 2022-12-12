@@ -8,19 +8,19 @@ public class LaptopBLBuilder {
     // Оперативная память
     private Ram ram;
     // Производитель
-    private Company сompany;
+    private Company company;
 
     // Конструктор
-    public LaptopBLBuilder(Ram ram, Company сompany) {
+    public LaptopBLBuilder(Ram ram, Company company) {
         this.ram = ram;
-        this.сompany = сompany;
+        this.company = company;
     }
 
     // Создание объекта "Ноутбук"
     public LaptopBL build() {
         LaptopBL laptop = new LaptopBL();
         laptop.setRam(this.ram);
-        laptop.setCompany(this.сompany);
+        laptop.setCompany(this.company);
         return laptop;
     }
 }

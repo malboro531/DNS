@@ -33,20 +33,22 @@ public class StartPageSteps {
     }
 
     // Навести курсор мыши на ссылку "Бытовая техника"
-    public void focusOnLinkAppliance () {
+    public void focusOnLinkAppliance() {
         startPage.linkAppliance().focusOnLink();
     }
 
     //Навести курсор на ссылку Плиты и печи
-    public void focusOnLinkStoveAndOven () {
+    public void focusOnLinkStoveAndOven() {
         startPage.linkStoveAndOvens().focusOnLink();
     }
 
     //Навести курсор на ссылку (Компьютеры и периферия) ПК, ноутбуки, периферия
-    public void focusOnLinkComputers () {startPage.linkComputers().focusOnLink();}
+    public void focusOnLinkComputers() {
+        startPage.linkComputers().focusOnLink();
+    }
 
 
-    // Переход на страницу "Бытовая техника"
+    // Перейти на страницу "Бытовая техника"
     public void goToAppliancesPage() {
         // Фокус на элементе
         startPage.linkAppliance().focusOnLink();
@@ -55,7 +57,7 @@ public class StartPageSteps {
         logger.info("Открыта страница [Бытовая техника]");
     }
 
-    // Переход на страницу "Плиты и печи"
+    // Перейти на страницу "Плиты и печи"
     public void goToStoveAndOvensPage() {
         // Наведение курсора мыши на ссылку "Бытовая техника"
         startPage.linkAppliance().focusOnLink();
@@ -64,10 +66,8 @@ public class StartPageSteps {
         logger.info("Открыта страница [Плиты и печи]");
     }
 
-    // Переход на страницу "Ноутбуки"
+    // Перейти на страницу "Ноутбуки"
     public void goToLaptopsPage() {
-        // Наведение курсора мыши на ссылку "ПК,ноутбуки,периферия"
-        startPage.linkComputers().focusOnLink();
         // Нажатие на ссылку "Ноутбуки"
         startPage.linkLaptops().click();
         logger.info("Открыта страница [Ноутбуки]");

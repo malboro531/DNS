@@ -16,7 +16,6 @@ public class ElectricStovePageSteps {
     public ElectricStovePageSteps(WebDriver driver) {
         // ***** Страница "Плиты электрические" *****
         electricStovePage = new ElectricStovePage(driver);
-        logger.info("Открыта страница [Плиты электрические]");
     }
 
     // Получение заголовка текущей страницы
@@ -25,5 +24,10 @@ public class ElectricStovePageSteps {
         return electricStovePage.getPageTitle();
     }
 
+    //Проверить, что в тексте Плиты электрические [количество] товаров количество товаров больше 100
+    public int intCountElectricStove() {
+        int countElectricStove = Integer.parseInt(electricStovePage.intCountElectricStove());
+        return countElectricStove;
+    }
 
 }

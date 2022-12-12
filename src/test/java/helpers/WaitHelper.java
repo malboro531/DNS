@@ -27,6 +27,11 @@ public class WaitHelper {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(webElement));
     }
 
+    // Ожидание наличия группы элементов по локатору
+    public static void presenceOfAllElementsLocatedBy(By webElement) {
+        webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(webElement));
+    }
+
     // Ожидание появления текста в элементе
     public static void presenceOfTextInElement(WebElement webElement, String text) {
         webDriverWait.until(ExpectedConditions.textToBePresentInElement(webElement, text));

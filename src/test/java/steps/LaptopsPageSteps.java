@@ -5,7 +5,6 @@ import helpers.JavaScriptHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import pages.AppliancePage;
 import pages.LaptopsPage;
 
 public class LaptopsPageSteps {
@@ -22,12 +21,12 @@ public class LaptopsPageSteps {
     }
 
     //Скрыть блок страницы
-    public Block getLaptopsBlock() {return laptopsPage.blockHeader();}
+    public Block getLaptopsBlock() {
+        return laptopsPage.blockHeader();
+    }
 
     // Установка фильтра "Производитель"
     public void filterByCompany(String company) {
-        // Прокрутка страницы вниз
-        JavaScriptHelper.scrollBy(0, 600);
         //Установка фильтра "Производитель"
         laptopsPage.checkboxCompany(company).setChecked(true);
         logger.info("Страница [Ноутбуки]: Установка фильтра \"Производитель\" - <" + company + ">");
@@ -35,21 +34,17 @@ public class LaptopsPageSteps {
 
     //Выбрать в фильтре Объем оперативной памяти значение 32 ГБ
     public void filterByRAM(int ram) {
-        // Прокрутка страницы вниз
-        JavaScriptHelper.scrollBy(0, 400);
         // Отображение фильтра "Объем оперативной памяти"
         laptopsPage.accordeonRAM().show();
-        // Прокрутка страницы вниз
-        JavaScriptHelper.scrollBy(0, 400);
         // Установка фильтра "Объем оперативной памяти"
-        laptopsPage.checkboxRAM(ram + " Гб").setChecked(true);
-        logger.info("Страница [Ноутбуки]: Установка фильтра \"Объем оперативной памяти\" - <" + ram + " Гб>");
+        laptopsPage.checkboxRAM(ram + " ГБ").setChecked(true);
+        logger.info("Страница [Ноутбуки]: Установка фильтра \"Объем оперативной памяти\" - <" + ram + " ГБ>");
     }
 
     //Нажать кнопку Применить
     public void applyFilters() {
-        // Прокрутка страницы вниз
-        JavaScriptHelper.scrollBy(0, 600);
+        // Прокрутка страницы вверх
+        JavaScriptHelper.scrollBy(0, 500);
         // Нажатие на кнопку "Применить"
         laptopsPage.buttonApply().click();
         logger.info("Страница [Ноутбуки]: Применение фильтров");

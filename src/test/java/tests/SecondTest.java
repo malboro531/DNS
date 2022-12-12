@@ -2,51 +2,33 @@ package tests;
 
 import helpers.JavaScriptHelper;
 import helpers.ScreenshotHelper;
+import listeners.Selenium4Listener;
 import org.junit.jupiter.api.Test;
-import steps.*;
-import tests.matchers.AppliancePageMatcher;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+import steps.ElectricStovePageSteps;
+import steps.StartPageSteps;
+import steps.StoveAndOvenPageSteps;
 import tests.matchers.ElectricStovePageMatcher;
 import tests.matchers.StartPageMatcher;
 
 public class SecondTest extends BaseTest {
 
     @Test
-    public void dnsTest() {
-    // 1. Arrange
-
-    // 2. Act
-    // 2.1 Шаги на стратовой странице ДНС
-        StoveAndOvenPageSteps startPageSteps = startPageSteps();
-        startPageMatchers(startPageSteps);
-    // 2.2 Шаги на странице "Плиты и печи"
-        ElectricStovePageSteps stoveAndOvenPageSteps = stoveAndOvenPageSteps();
-    // 2.3 Шаги на странице "Электрические плиты"
-        StartPageSteps electricStovePageSteps = electricStovePageSteps();
-        electricStovePageMatchers(electricStovePageSteps);
-    }
-
-    // 3. Assert
-    // 3.1 Matchers startPage
-    private void startPageMatchers(StoveAndOvenPageSteps startPageSteps) {
-        StartPageMatcher starPageMatcher = new StartPageMatcher(startPageSteps);
-        // 3.1.1 Проверить, что отображаются ссылки: Встраиваемая техника, Техника для кухни, Техника для дома
-        starPageMatcher.isDisplayedLinkApplianceSubcategories();
-    }
-
-    // 3.3 Matchers electricStovePage
-    private void electricStovePageMatchers (StartPageSteps electricStovePageSteps){
-        ElectricStovePageMatcher electricStovePageMatcher = new ElectricStovePageMatcher(electricStovePageSteps);
-        // 3.3.1 Проверить, что в тексте Плиты электрические [количество] товаров количество товаров больше 100
-        electricStovePageMatcher.isCountElectricStoveOverOneHundred();
-    }
-
-
-    private StoveAndOvenPageSteps startPageSteps() {
+    public void startPageTest() {
         // ***** Стартовая страница сайта DNS *****
-        StartPageSteps startPageSteps = new StartPageSteps(driver);
+        // 1.1 Arrange
+
+        // 1.2 Act Шаги на стратовой странице ДНС
+        // Регистрация слушателя событий
+        Selenium4Listener listener = new Selenium4Listener();
+        WebDriver eventFiringWebDriver = new EventFiringDecorator<>(listener).decorate(driver);
+
+        StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
         startPageSteps.closeCityAgree();
         //Скриншот
+        JavaScriptHelper.slowScroll();
         ScreenshotHelper.screenshot("21HomePage.png");
         //Навести курсор на ссылку Бытовая техника
         startPageSteps.focusOnLinkAppliance();
@@ -59,26 +41,74 @@ public class SecondTest extends BaseTest {
         startPageSteps.focusOnLinkStoveAndOven();
         //Скриншот
         ScreenshotHelper.screenshot("23FocusOnLinkStoveAndOven.png");
-        //Перейти по ссылке Плиты и печи
-        startPageSteps.goToStoveAndOvensPage();
-        return new StoveAndOvenPageSteps(driver);
+        //Навести курсор на ссылку Бытовая техника повторно (+скролл)
+        JavaScriptHelper.scrollBy(0, -3000);
+        startPageSteps.focusOnLinkAppliance();
+
+        try {
+            Thread.sleep(1_000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // 1.3 Assert Matchers startPage
+        StartPageMatcher starPageMatcher = new StartPageMatcher(startPageSteps);
+        // 1.3.1 Проверить, что отображаются ссылки: Встраиваемая техника, Техника для кухни, Техника для дома
+        starPageMatcher.isDisplayedLinkApplianceSubcategories();
     }
 
-    private ElectricStovePageSteps stoveAndOvenPageSteps() {
+    @Test
+    public void stoveAndOvenPageTest() {
         // ***** Страница "Плиты и печи" *****
-        StoveAndOvenPageSteps stoveAndOvenPageSteps = new StoveAndOvenPageSteps(driver);
+        // 2.1 Arrange
+
+        // 2.2 Act Шаги на странице "Плиты и печи"
+        // Регистрация слушателя событий
+        Selenium4Listener listener = new Selenium4Listener();
+        WebDriver eventFiringWebDriver = new EventFiringDecorator<>(listener).decorate(driver);
+
+        StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
+        // Закрыть окно подтверждения города
+        startPageSteps.closeCityAgree();
+        //Перейти по ссылке Плиты и печи
+        startPageSteps.focusOnLinkAppliance();
+        startPageSteps.goToStoveAndOvensPage();
         //Скриншот
         ScreenshotHelper.screenshot("24StoveAndOven.png");
-        //Перейти по ссылке Плиты электрические
-        stoveAndOvenPageSteps.goToElectricStovePage();
-        return  new ElectricStovePageSteps(driver);
+
+        // 2.3 Assert Matchers startPage
     }
 
-    private StartPageSteps electricStovePageSteps() {
+    @Test
+    public void electricStovePageTest() {
         // ***** Страница "Электрические плиты" *****
+        // 3.1 Arrange
+
+        // 3.2 Act
+        // Регистрация слушателя событий
+        Selenium4Listener listener = new Selenium4Listener();
+        WebDriver eventFiringWebDriver = new EventFiringDecorator<>(listener).decorate(driver);
+
+        StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
+        // Закрыть окно подтверждения города
+        startPageSteps.closeCityAgree();
+        //Перейти по ссылке Плиты и печи
+        startPageSteps.focusOnLinkAppliance();
+        startPageSteps.goToStoveAndOvensPage();
+
+        StoveAndOvenPageSteps stoveAndOvenPageSteps = new StoveAndOvenPageSteps(eventFiringWebDriver);
+        //Перейти по ссылке Плиты электрические
+        stoveAndOvenPageSteps.goToElectricStovePage();
+
+        ElectricStovePageSteps electricStovePageSteps = new ElectricStovePageSteps(eventFiringWebDriver);
         //Скриншот
+        JavaScriptHelper.slowScroll();
         ScreenshotHelper.screenshot("25ElectricStove.png");
-        return new StartPageSteps(driver);
+
+        // 3.3 Matchers electricStovePage
+        ElectricStovePageMatcher electricStovePageMatcher = new ElectricStovePageMatcher(electricStovePageSteps);
+        // 3.3.1 Проверить, что в тексте Плиты электрические [количество] товаров количество товаров больше 100
+        electricStovePageMatcher.isCountElectricStoveOverOneHundred();
     }
 
 }
