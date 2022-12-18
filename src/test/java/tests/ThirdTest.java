@@ -28,7 +28,7 @@ public class ThirdTest extends BaseTest {
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Скриншот
         JavaScriptHelper.slowScroll();
         ScreenshotHelper.screenshot("31HomePage.png");
@@ -59,7 +59,7 @@ public class ThirdTest extends BaseTest {
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Перейти по ссылке Ноутбуки
         //Не понимаю че к чему, но без слипа не работает
         try {
@@ -116,7 +116,7 @@ public class ThirdTest extends BaseTest {
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Перейти по ссылке Ноутбуки
         //Не понимаю че к чему, но без слипа не работает
         try {
@@ -145,18 +145,18 @@ public class ThirdTest extends BaseTest {
         //Сделать скриншот всей страницы (с прокруткой) после загрузки страницы
         ScreenshotHelper.screenshot("37FirstLaptop.png");
 
+        JavaScriptHelper.scrollBy(0, -2000);
+        //Развернуть список характеристик Ноутбука
+        laptopProductPageSteps.getAllSpecifications();
+
         // 3.3 Matchers laptopProductPage
         LaptopProductPageMatcher laptopProductPageMatcher = new LaptopProductPageMatcher(laptopProductPageSteps);
         // 3.3.1 Проверить, что заголовок страницы соответствует ожидаемому
-        String expected = "Купить 15.6\" Ноутбук ASUS ZenBook PRO DUO 15 OLED UX582LR-H2006T синий в интернет " +
-                "магазине DNS. Характеристики, цена ASUS ZenBook PRO DUO 15 OLED UX582LR-H2006T | 4800982";
-        laptopProductPageMatcher.pageTitleEquals(expected);
+        laptopProductPageMatcher.pageTitleEquals();
         // 3.3.2 Проверить, что в блоке Характеристики заголовок содержит ASUS
-        String expectedCompany = "ASUS";
-        laptopProductPageMatcher.chCompanyAsusEquals(expectedCompany);
+        laptopProductPageMatcher.chCompanyAsusEquals();
         // 3.3.3 Проверить, что в блоке Характеристики значение Объем оперативной памяти равно 32 ГБ
-        String expectedRAM = "32";
-        laptopProductPageMatcher.chRAMEquals(expectedRAM);
+        laptopProductPageMatcher.chRAMEquals();
     }
 
 }

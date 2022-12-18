@@ -1,6 +1,7 @@
 package pages;
 
 import elements.BaseElement;
+import elements.Button;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,14 @@ public class LaptopProductPage extends BasePage {
     private Logger logger = LogManager.getLogger(LaptopProductPage.class);
 
     // ***** Веб элементы *****
-    //Модель ноутбука (в характеристиках)
+    //Кнопка "Развернуть все"
     @FindBy(xpath = "//button[contains(@class, 'product-characteristics__expand')]")
+    private WebElement buttonAllSpecifications;
+    //Модель ноутбука (в характеристиках)
+    @FindBy(xpath = "//*[text() = ' Модель ']/following-sibling::div")
     private WebElement baseElementChCompany;
     //Объем оперативной памяти ноутбука (в характеристиках)
-    @FindBy(xpath = "//button[contains(@class, 'product-characteristics__expand')]")
+    @FindBy(xpath = "//*[text() = ' Объем оперативной памяти ']/following-sibling::div")
     private WebElement baseElementChRAM;
 
     // Конструктор класса
@@ -30,6 +34,9 @@ public class LaptopProductPage extends BasePage {
     }
 
     // ***** Получение обернутых веб элементов *****
+
+    //Кнопка "Развернуть все"
+    public Button buttonAllSpecifications() { return new Button(buttonAllSpecifications); }
 
     // Модель ноутбука (в характеристиках)
     public BaseElement baseElementChCompany() {

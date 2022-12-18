@@ -25,7 +25,7 @@ public class FirstTest extends BaseTest{
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         //Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Скриншот
         JavaScriptHelper.slowScroll();
         ScreenshotHelper.screenshot("11HomePage.png");
@@ -44,7 +44,7 @@ public class FirstTest extends BaseTest{
         WebDriver eventFiringWebDriver = new EventFiringDecorator<>(listener).decorate(driver);
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         //Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Перейти по ссылке Бытовая техника
         startPageSteps.goToAppliancesPage();
 
@@ -71,7 +71,7 @@ public class FirstTest extends BaseTest{
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         //Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Перейти по ссылке Бытовая техника
         startPageSteps.goToAppliancesPage();
 

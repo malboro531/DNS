@@ -1,5 +1,6 @@
 package steps;
 
+import helpers.JavaScriptHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,11 @@ public class LaptopProductPageSteps {
     public String getPageTitle() {
         logger.info("Страница [Продукт. Ноутбук]: Получение заголовка текущей страницы");
         return laptopProductPage.getPageTitle();
+    }
+
+    //Развернуть список характеристик Ноутбука
+    public void getAllSpecifications() {
+        laptopProductPage.buttonAllSpecifications().click();
     }
 
     //Проверить, что в блоке Характеристики заголовок содержит ASUS

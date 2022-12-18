@@ -26,7 +26,7 @@ public class SecondTest extends BaseTest {
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Скриншот
         JavaScriptHelper.slowScroll();
         ScreenshotHelper.screenshot("21HomePage.png");
@@ -69,7 +69,7 @@ public class SecondTest extends BaseTest {
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Перейти по ссылке Плиты и печи
         startPageSteps.focusOnLinkAppliance();
         startPageSteps.goToStoveAndOvensPage();
@@ -91,7 +91,7 @@ public class SecondTest extends BaseTest {
 
         StartPageSteps startPageSteps = new StartPageSteps(eventFiringWebDriver);
         // Закрыть окно подтверждения города
-        startPageSteps.closeCityAgree();
+//        startPageSteps.closeCityAgree();
         //Перейти по ссылке Плиты и печи
         startPageSteps.focusOnLinkAppliance();
         startPageSteps.goToStoveAndOvensPage();
