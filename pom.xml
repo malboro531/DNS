@@ -55,6 +55,19 @@
             <artifactId>ashot</artifactId>
             <version>1.5.4</version>
         </dependency>
+        <!-- Allure Junit5 -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.15.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- AspectJ -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.7</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -71,6 +84,15 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <reportVersion>2.6.0</reportVersion>
+                    <resultsDirectory>allure-results</resultsDirectory>
                 </configuration>
             </plugin>
         </plugins>

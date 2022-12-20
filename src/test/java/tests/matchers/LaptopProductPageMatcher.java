@@ -19,8 +19,8 @@ public class LaptopProductPageMatcher {
     // Проверка / Утверждение (Матчер)
     // Проверить, что заголовок страницы соответствует ожидаемому
     public void pageTitleEquals() {
-        String expected = "Технические характеристики 15.6\" Ноутбук ASUS ZenBook PRO DUO 15 OLED UX582LR-H2006T" +
-                " синий | 4800982 . Интернет-магазин DNS";
+        String expected = "Технические характеристики 14\" Ноутбук ASUS ExpertBook B9400CEA-KC0243X черный |" +
+                " 5057132 . Интернет-магазин DNS";
         String actual = laptopProductPageSteps.getPageTitle();
         Assertions.assertEquals(expected, actual, "ERROR! Заголовок страницы не соответствует ожидаемому!");
         logger.info("Все ОК! Заголовок страницы соответствует ожидаемому");
